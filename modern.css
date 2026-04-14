@@ -21,6 +21,31 @@ div[id="news"], div[id="syslog"] {
     scrollbar-color: #cbd5e1 transparent;
 }
 
+/* Typography Defaults for Clean Readability */
+h1, h2, h3, h4, h5, h6 {
+    color: #0f172a;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 18px; }
+
+p, ul, ol, dl {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #334155;
+}
+li {
+    margin-bottom: 8px;
+}
+hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 24px 0;
+}
+
 /* Container */
 #content {
     max-width: 1200px;
@@ -54,6 +79,7 @@ legend {
     border-radius: 12px;
     font-size: 13px;
     box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
+    margin-bottom: 20px !important;
 }
 
 /* Animated Progress Bars */
