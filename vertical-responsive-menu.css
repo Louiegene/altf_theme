@@ -26,6 +26,7 @@ html, body {
   background: linear-gradient(180deg, #090e17 0%, #111827 100%);
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .menu--header {
@@ -53,6 +54,7 @@ html, body {
 
 .menu {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   margin: 0;
   padding: 0;
@@ -189,16 +191,32 @@ html, body {
 
 /* Touch friendly adjustments for smaller screens */
 @media (max-width: 800px) {
-  .menu--header {
-    padding: 20px 16px;
-    font-size: 20px;
+  .header--title, .menu--label, .sub_menu--label {
+    display: none !important;
   }
+  .menu--header {
+    padding: 20px 0;
+    justify-content: center;
+  }
+  .menu--header i { margin: 0; font-size: 22px; }
+  
   .menu--link {
-    padding: 18px 20px;
-    font-size: 15px;
+    padding: 20px 0;
+    justify-content: center;
+  }
+  .menu--icon {
+    margin: 0;
+    font-size: 22px !important;
+  }
+  .menu--item__has_sub_menu .menu--link:after {
+    display: none;
   }
   .sub_menu--link {
-    padding: 14px 20px 14px 55px;
-    font-size: 14px;
+    padding: 16px 0;
+    justify-content: center;
+  }
+  .submenu--icon {
+    margin: 0;
+    font-size: 18px !important;
   }
 }

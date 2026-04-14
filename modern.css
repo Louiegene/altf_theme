@@ -97,7 +97,6 @@ div[style*="background-color"]::after {
     border-collapse: separate !important;
     width: 100%;
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 0 0 1px #e2e8f0;
 }
 
@@ -200,7 +199,10 @@ a:hover {
 /* Responsive Styles */
 @media (max-width: 800px) {
     body { padding: 12px; }
-    fieldset { padding: 20px !important; margin-top: 16px !important; }
+    fieldset { 
+        padding: 20px !important; margin-top: 16px !important; 
+        overflow-x: auto; /* Ensure contents can scroll if too wide */
+    }
     
     input[type="submit"], input[type="button"], button {
         width: 100%;
@@ -214,29 +216,12 @@ a:hover {
         padding: 14px;
         font-size: 15px;
     }
-}
 
-@media (max-width: 600px) {
-    #content table, #content tbody, #content tr, #content td, #content th {
-        display: block !important;
-        width: 100% !important;
-        box-sizing: border-box;
-    }
-    #content thead { display: none !important; }
-    #content tr {
-        margin-bottom: 16px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
-        background: #fff;
-        padding: 8px 0;
-    }
-    #content td {
-        border-bottom: 1px solid #f1f5f9;
-        text-align: left;
-        padding: 12px 16px !important;
-    }
-    #content tr:last-child td {
-        border-bottom: none;
+    /* Keep tables robust without breaking rows, just allow them to pan */
+    #content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
 }

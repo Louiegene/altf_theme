@@ -35,7 +35,7 @@ function menuSetup(where, display) {
 
     try {
         let w = top.innerWidth || top.document.documentElement.clientWidth;
-        top.altf.cols = (w <= 800) ? "240,*" : "260,*";
+        top.altf.cols = (w <= 800) ? "65,*" : "260,*";
     } catch(e) {
         top.altf.cols="260,*";
     }
@@ -46,7 +46,7 @@ function menuSetup(where, display) {
 	frm.writeln('<div class="vertical_nav">')
     
     frm.writeln('<div class="menu--header">')
-    frm.writeln('<i class="fa fa-server"></i> Alt-F')
+    frm.writeln('<i class="fa fa-server"></i> <span class="header--title">Alt-F</span>')
     frm.writeln('</div>')
 
 	frm.writeln('<ul id="js-menu" class="menu">')
@@ -74,7 +74,7 @@ function menuSetup(where, display) {
 					frm.writeln('<li class="sub_menu--item">')
 					frm.writeln('<a href="', sm.url, '" target="content" class="sub_menu--link">')
 					frm.writeln('<i class="submenu--icon fa fa-fw ', getSubIconFromLabel(obj.label,sm.item) ,'"></i>') 
-					frm.writeln(sm.item) 
+					frm.writeln('<span class="sub_menu--label">', sm.item, '</span>') 
 					frm.writeln('</a>')
 					frm.writeln('</li>')
 				}
