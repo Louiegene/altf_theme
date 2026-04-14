@@ -9,14 +9,7 @@
   outline: none; 
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: #0f172a; 
-  color: #f8fafc;
-  overflow: hidden;
-}
+/* Scoped to prevent overwriting the main frame defaults */
 
 .vertical_nav {
   position: absolute;
@@ -61,14 +54,17 @@ html, body {
 }
 
 .menu::-webkit-scrollbar {
-  width: 6px;
+  width: 10px; /* Widened for mouse usage */
 }
 .menu::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(255,255,255,0.05);
 }
 .menu::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #475569;
   border-radius: 10px;
+}
+.menu::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }
 
 .menu--item {

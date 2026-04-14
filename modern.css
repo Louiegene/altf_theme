@@ -1,6 +1,7 @@
 /* Premium Content Frame Styling */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
+/* Base configuration relying on native browser window bounds */
 body {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     background: #f1f5f9; 
@@ -8,6 +9,16 @@ body {
     margin: 0;
     padding: 24px;
     line-height: 1.6;
+}
+
+/* Isolate the Alt-F News and Log sections into scrollable blocks */
+pre, textarea, #news, #log, #syslog, .news, .syslog, 
+fieldset#news, fieldset#syslog, fieldset[id*="news"], fieldset[id*="log"],
+div[id="news"], div[id="syslog"] {
+    max-height: 350px !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
 }
 
 /* Container */
@@ -98,6 +109,9 @@ div[style*="background-color"]::after {
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 0 0 1px #e2e8f0;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 #content th {
@@ -136,7 +150,7 @@ div[style*="background-color"]::after {
 }
 
 /* Inputs, Selects, and Buttons */
-input[type="text"], input[type="password"], select, textarea {
+input[type="text"], input[type="password"], select, textarea, input[type="file"] {
     padding: 10px 16px;
     border: 2px solid #e2e8f0;
     border-radius: 10px;
@@ -148,6 +162,15 @@ input[type="text"], input[type="password"], select, textarea {
     width: auto;
     max-width: 100%;
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+    margin: 4px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 4px 8px 4px 4px;
+    transform: scale(1.15);
+    accent-color: #4f46e5;
+    cursor: pointer;
 }
 
 input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:focus {
@@ -172,6 +195,7 @@ input[type="submit"], input[type="button"], button, .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin: 4px;
 }
 
 input[type="submit"]:hover, input[type="button"]:hover, button:hover, .btn:hover {
@@ -206,22 +230,16 @@ a:hover {
     
     input[type="submit"], input[type="button"], button {
         width: 100%;
-        margin-bottom: 8px;
+        margin: 4px 0 8px 0;
         padding: 14px;
         font-size: 15px;
     }
 
-    input[type="text"], input[type="password"], select {
+    input[type="text"], input[type="password"], select, input[type="file"], textarea {
         width: 100%;
+        margin: 4px 0 8px 0;
         padding: 14px;
         font-size: 15px;
-    }
-
-    /* Keep tables robust without breaking rows, just allow them to pan */
-    #content table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
     }
 }
