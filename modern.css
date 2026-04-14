@@ -82,6 +82,30 @@ legend {
     margin-bottom: 16px !important;
 }
 
+/* Raw Text Formatting (Network Block, etc) */
+div[id*="network"] fieldset, #network_st fieldset {
+    line-height: 2.8 !important; /* Massive breathing room for raw string text */
+}
+
+div[id*="network"] strong, #network_st strong {
+    background: #f8fafc;
+    color: #4f46e5 !important;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 24px; /* Hard separation from previous values */
+    margin-right: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    display: inline-block;
+}
+
+div[id*="network"] strong:first-of-type, #network_st strong:first-of-type {
+    margin-left: 0 !important;
+}
+
 /* Animated Progress Bars */
 div[style*="background-color"][style*="width"] {
     height: 32px !important;
@@ -156,6 +180,8 @@ div[style*="background-color"]::after {
     font-size: 14px;
     vertical-align: middle !important;
     white-space: normal !important; /* Prevent text crunching */
+    word-spacing: 8px; /* Expand physical spaces so raw un-tagged string outputs (like Network parameters) gain structural gaps */
+    line-height: 1.8; /* Ensure wrapped text doesn't collapse vertically */
 }
 
 #content table table tr:last-child td, fieldset tr:last-child td {
@@ -166,11 +192,18 @@ div[style*="background-color"]::after {
     background-color: #f8fafc;
 }
 
-#content b {
+#content b, #content strong {
     color: #1e293b !important;
     font-size: 14px !important;
     font-weight: 700;
-    margin-right: 12px; /* Large explicit gap between label and data */
+    margin-left: 16px; /* Push label far away from the PREVIOUS value */
+    margin-right: 6px; /* Keep label structure tight to its OWN value */
+    display: inline-block;
+}
+
+#content b:first-child, #content td > b:first-child, 
+#content strong:first-child, #content td > strong:first-child {
+    margin-left: 0 !important; /* Exclude left margin if it's the start of the column */
 }
 
 /* Inputs, Selects, and Buttons */
