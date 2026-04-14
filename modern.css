@@ -135,9 +135,6 @@ div[style*="background-color"]::after {
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 0 0 1px #e2e8f0;
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 #content th {
@@ -269,5 +266,11 @@ a:hover {
         padding: 14px;
         font-size: 15px;
         box-sizing: border-box;
+    }
+
+    #content table {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
 }
