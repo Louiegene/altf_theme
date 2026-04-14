@@ -142,7 +142,7 @@ div[style*="background-color"]::after {
 
 #content th {
     background-color: #f8fafc !important;
-    padding: 12px 16px !important;
+    padding: 14px 24px !important;
     text-align: left;
     font-weight: 700;
     color: #334155;
@@ -151,10 +151,11 @@ div[style*="background-color"]::after {
     font-size: 13px;
     letter-spacing: 0.02em;
     vertical-align: middle !important;
+    white-space: nowrap;
 }
 
 #content td {
-    padding: 10px 16px !important;
+    padding: 12px 24px !important;
     border-bottom: 1px solid #f1f5f9;
     color: #475569;
     font-size: 14px;
