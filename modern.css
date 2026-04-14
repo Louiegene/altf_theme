@@ -130,11 +130,9 @@ div[style*="background-color"]::after {
 /* Modern Tables */
 #content table {
     margin-bottom: 24px !important;
-    border-spacing: 0 !important; 
+    border-spacing: 12px 14px !important; 
     border-collapse: separate !important;
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 0 0 1px #e2e8f0;
 }
 
 #content th {
@@ -171,7 +169,7 @@ div[style*="background-color"]::after {
     color: #1e293b !important;
     font-size: 14px !important;
     font-weight: 700;
-    margin-right: 6px;
+    margin-right: 12px; /* Large explicit gap between label and data */
 }
 
 /* Inputs, Selects, and Buttons */
