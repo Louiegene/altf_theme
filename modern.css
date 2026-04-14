@@ -127,17 +127,17 @@ div[style*="background-color"]::after {
     100% { left: 200%; }
 }
 
-/* Modern Tables */
-#content table {
+/* Modern Tables - Targeted strictly to internal content to prevent wrapper layout corruption */
+#content table table, fieldset table {
     margin-bottom: 24px !important;
-    border-spacing: 12px 14px !important; 
-    border-collapse: separate !important;
+    border-spacing: 0 !important; 
+    border-collapse: collapse !important;
     width: 100%;
 }
 
-#content th {
+#content table table th, fieldset th {
     background-color: #f8fafc !important;
-    padding: 14px 24px !important;
+    padding: 16px 24px !important; /* Wide readable gap */
     text-align: left;
     font-weight: 700;
     color: #334155;
@@ -146,22 +146,23 @@ div[style*="background-color"]::after {
     font-size: 13px;
     letter-spacing: 0.02em;
     vertical-align: middle !important;
-    white-space: nowrap;
+    white-space: normal !important; /* Allow header to wrap if causing column crush */
 }
 
-#content td {
-    padding: 12px 24px !important;
+#content table table td, fieldset td {
+    padding: 16px 24px !important; /* Massive readable gap */
     border-bottom: 1px solid #f1f5f9;
     color: #475569;
     font-size: 14px;
     vertical-align: middle !important;
+    white-space: normal !important; /* Prevent text crunching */
 }
 
-#content tr:last-child td {
+#content table table tr:last-child td, fieldset tr:last-child td {
     border-bottom: none;
 }
 
-#content tr:hover td {
+#content table table tr:hover td, fieldset tr:hover td {
     background-color: #f8fafc;
 }
 
@@ -266,9 +267,8 @@ a:hover {
         box-sizing: border-box;
     }
 
-    #content table {
+    #content table table, fieldset table {
         overflow-x: auto;
-        white-space: nowrap;
         -webkit-overflow-scrolling: touch;
     }
 }
