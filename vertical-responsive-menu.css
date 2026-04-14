@@ -26,7 +26,6 @@ html, body {
   background: linear-gradient(180deg, #090e17 0%, #111827 100%);
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 .menu--header {
@@ -190,7 +189,9 @@ html, body {
 }
 
 /* Touch friendly adjustments for smaller screens */
-@media (max-width: 800px) {
+/* Since this is inside a frame, we naturally target the frame's max-width 
+   When modern.js sets cols="65,*", the max-width is 65px */
+@media (max-width: 150px) {
   .header--title, .menu--label, .sub_menu--label {
     display: none !important;
   }
@@ -198,7 +199,7 @@ html, body {
     padding: 20px 0;
     justify-content: center;
   }
-  .menu--header i { margin: 0; font-size: 22px; }
+  .menu--header i { margin: 0; font-size: 20px; }
   
   .menu--link {
     padding: 20px 0;
@@ -206,7 +207,8 @@ html, body {
   }
   .menu--icon {
     margin: 0;
-    font-size: 22px !important;
+    font-size: 20px !important;
+    width: 100%;
   }
   .menu--item__has_sub_menu .menu--link:after {
     display: none;
